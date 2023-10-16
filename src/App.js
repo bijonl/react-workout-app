@@ -13,7 +13,6 @@ function App() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault(); 
-    console.log(e.target[0].value); 
     setExerciseList([
       {
         exerciseName: e.target[0].value, 
@@ -30,18 +29,7 @@ function App() {
   return (
     <>
       <h1>Exercise Workout Log</h1>
-      <form onSubmit={handleFormSubmit}>
-          <label htmlFor="exercise">Exercises
-          <input type="text" id="exercise" name="exercise"/>
-          </label>
-          <label htmlFor="sets">Number of Sets
-          <input type="number" id="sets" name="sets"/>
-          </label>
-          <label htmlFor="reps">Reps
-          <input type="number" id="reps" name="reps"/>
-          <input type="submit" value="Add Exercise" />
-          </label>
-      </form>
+      <ExerciseForm handleFormSubmit = {handleFormSubmit} />
       <div className="exercise-list">
           {listItems}
        </div>
