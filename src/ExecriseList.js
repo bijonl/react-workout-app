@@ -1,14 +1,15 @@
 
 
 
-function ExerciseList({listItems}) {
-    const list = listItems.map((item) => {
-        <div>{item.exerciseName}</div>
-    }); 
-
+function ExerciseList({exerciseList}) {
+    const listItems = exerciseList.map((exercise, i) => 
+        <div className="single-exercise" key={i}>
+            {exercise.exerciseName} {exercise.numberOfSets}x{exercise.numberOfReps}
+        </div>
+    ); 
     return (
         <div className="exercise-list">
-           {list}
+           {listItems}
         </div>
     )
 }

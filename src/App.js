@@ -14,25 +14,20 @@ function App() {
   const handleFormSubmit = (e) => {
     e.preventDefault(); 
     setExerciseList([
+      ...exerciseList,
       {
         exerciseName: e.target[0].value, 
         numberOfSets: e.target[1].value, 
         numberOfReps: e.target[2].value, 
-      }, 
-      ...exerciseList]); 
+      }
+      ]); 
   }; 
-
-  const listItems = exerciseList.map((exercise, i) => 
-      <div className="single-exercise" key={i}>{exercise.exerciseName} {exercise.numberOfSets}x{exercise.numberOfReps}</div>
-  ); 
 
   return (
     <>
       <h1>Exercise Workout Log</h1>
       <ExerciseForm handleFormSubmit = {handleFormSubmit} />
-      <div className="exercise-list">
-          {listItems}
-       </div>
+      <ExerciseList exerciseList = {exerciseList} />
     </>
   );
 }
