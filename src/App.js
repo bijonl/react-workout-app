@@ -11,8 +11,33 @@ function App() {
     { exerciseName : 'Exercise 4', numberOfSets : 3, numberOfReps: 10 }, 
   ]); 
 
+  const moveItemUp = (currentSpot, newSpot) => {
+    const exerciseListCopy = [...exerciseList]; 
+    const itemToBeMoved = exerciseListCopy[currentSpot]; 
+    const itemToBeReplaced = exerciseListCopy[newSpot]; 
+    if(newSpot > -1) {
+      exerciseListCopy[newSpot] = itemToBeMoved; 
+      exerciseListCopy[currentSpot] = itemToBeReplaced; 
+    } else {
+      console.log('no change bc its the top'); 
+    }
+    setExerciseList(exerciseListCopy); 
+  }
+
+  const moveItemDown = (currentSpot, newSpot) => {
+    const exerciseListCopy = [...exerciseList]; 
+    const itemToBeMoved = exerciseListCopy[currentSpot]; 
+    const itemToBeReplaced = exerciseListCopy[newSpot]; 
+    if(newSpot < exerciseListCopy.length) {
+      exerciseListCopy[newSpot] = itemToBeMoved; 
+      exerciseListCopy[currentSpot] = itemToBeReplaced; 
+    } else {
+      console.log('not moving because its at the bottom'); 
+    }
+    setExerciseList(exerciseListCopy); 
+  }
+ 
   const removeItem = (id) => {
-    console.log(id); 
     const exerciseListCopy = [...exerciseList]; 
     exerciseListCopy.splice(id, 1); 
     setExerciseList(exerciseListCopy); 
@@ -34,7 +59,12 @@ function App() {
     <>
       <h1>Exercise Workout Log</h1>
       <ExerciseForm handleFormSubmit = {handleFormSubmit} />
-      <ExerciseList exerciseList = {exerciseList} removeItem = {removeItem} />
+      <ExerciseList 
+        exerciseList = {exerciseList} 
+        removeItem = {removeItem} 
+        moveItemUp = {moveItemUp} 
+        moveItemDown = {moveItemDown} 
+      />
     </>
   );
 }
