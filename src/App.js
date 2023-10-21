@@ -9,7 +9,14 @@ function App() {
     { exerciseName : 'Exercise 2', numberOfSets : 3, numberOfReps: 10 }, 
     { exerciseName : 'Exercise 3', numberOfSets : 3, numberOfReps: 10 }, 
     { exerciseName : 'Exercise 4', numberOfSets : 3, numberOfReps: 10 }, 
-  ])
+  ]); 
+
+  const removeItem = (id) => {
+    console.log(id); 
+    const exerciseListCopy = [...exerciseList]; 
+    exerciseListCopy.splice(id, 1); 
+    setExerciseList(exerciseListCopy); 
+  }; 
 
   const handleFormSubmit = (e) => {
     e.preventDefault(); 
@@ -27,7 +34,7 @@ function App() {
     <>
       <h1>Exercise Workout Log</h1>
       <ExerciseForm handleFormSubmit = {handleFormSubmit} />
-      <ExerciseList exerciseList = {exerciseList} />
+      <ExerciseList exerciseList = {exerciseList} removeItem = {removeItem} />
     </>
   );
 }
