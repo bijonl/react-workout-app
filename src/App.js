@@ -11,34 +11,24 @@ function App() {
     { exerciseName : 'Exercise 4', numberOfSets : 3, numberOfReps: 10 }, 
   ]); 
 
-  const moveItemUp = (currentSpot, newSpot) => {
+  const moveItem = (currentSpot, newSpot) => {
+    {/* Move a shallow copy of the current exercise list*/}
     const exerciseListCopy = [...exerciseList]; 
+    {/* Variables of the two list items that are going to be moved*/}
     const itemToBeMoved = exerciseListCopy[currentSpot]; 
     const itemToBeReplaced = exerciseListCopy[newSpot]; 
-    if(newSpot > -1) {
+    // First check that the top items isn't being moved up and the last item isn't being moved down.
+    if(newSpot > -1 && newSpot < exerciseListCopy.length) {
       exerciseListCopy[newSpot] = itemToBeMoved; 
       exerciseListCopy[currentSpot] = itemToBeReplaced; 
-    } else {
-      console.log('no change bc its the top'); 
-    }
+    } 
+    // Reorder the List
     setExerciseList(exerciseListCopy); 
   }
 
-  const moveItemDown = (currentSpot, newSpot) => {
-    const exerciseListCopy = [...exerciseList]; 
-    const itemToBeMoved = exerciseListCopy[currentSpot]; 
-    const itemToBeReplaced = exerciseListCopy[newSpot]; 
-    if(newSpot < exerciseListCopy.length) {
-      exerciseListCopy[newSpot] = itemToBeMoved; 
-      exerciseListCopy[currentSpot] = itemToBeReplaced; 
-    } else {
-      console.log('not moving because its at the bottom'); 
-    }
-    setExerciseList(exerciseListCopy); 
-  }
- 
   const removeItem = (id) => {
     const exerciseListCopy = [...exerciseList]; 
+    // Removes one item at the index that is clicked. 
     exerciseListCopy.splice(id, 1); 
     setExerciseList(exerciseListCopy); 
   }; 
@@ -62,8 +52,7 @@ function App() {
       <ExerciseList 
         exerciseList = {exerciseList} 
         removeItem = {removeItem} 
-        moveItemUp = {moveItemUp} 
-        moveItemDown = {moveItemDown} 
+        moveItem = {moveItem} 
       />
     </>
   );
