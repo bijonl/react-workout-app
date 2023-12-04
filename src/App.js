@@ -47,7 +47,6 @@ function App() {
 
   return (
     <>
-      <h1>Exercise Workout Log</h1>
       <ExerciseForm handleFormSubmit = {handleFormSubmit} />
       <ExerciseList 
         exerciseList = {exerciseList} 

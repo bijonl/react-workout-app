@@ -36,3 +36,86 @@
     transform: rotate(360deg);
   }
 }
+
+.exercise-form-wrapper {
+  width: 50%; 
+  margin: auto; 
+  text-align: center;
+}
+
+.exercise-list {
+  width: 25%; 
+  margin: auto; 
+  padding-top: 2rem; 
+}
+
+.single-exercise {
+  display: flex; 
+  color: white; 
+  background-color: red;
+  padding: 1rem;
+  border: solid 1px;
+  border-radius: 7px;
+  margin-bottom: 10px;
+  align-items: center
+}
+
+.action-button-wrapper {
+  margin-left: auto; 
+}
+
+.input-container {
+  text-align: left; 
+}
+
+.input-container input {
+  width: 100%;
+  height: 30px;
+  border-radius: 7px;
+  border: solid 1px;
+}
+
+.exercise-form {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.btn {
+  background-color: blue;
+  border: solid 1px;
+  border-radius: 12px;
+  padding: 0;
+  height: auto;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.increase-btn img {
+  transform: rotate(180deg);
+}
+
+.delete-buttom img {
+  aspect-ratio: 1/1;
+  width: 16px;
+}
+
+button {
+  height: 25px; 
+}
+
+.action-button-wrapper button {
+  margin-right: 12px; 
+  margin-right: 12px;
+  background: blue;
+  border: solid 1px;
+  border-radius: 50%; 
+  height: 32px;
+  aspect-ratio: 1/1;
+}
+
+.action-button-wrapper button img {
+  filter: brightness(0) invert(1);
+}
