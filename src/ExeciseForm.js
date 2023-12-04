@@ -13,24 +13,20 @@ function ExerciseForm({handleFormSubmit}) {
             </div>
             
           </div>
-
           <div class="input-container">
             <label htmlFor="sets">Number of Sets</label>
             <div class="">
             <input type="number" id="sets" name="sets"/>
             </div>
           </div>
-
           <div class="input-container">
           <label htmlFor="reps">Reps</label>
           <div>
             <input type="number" id="reps" name="reps"/>
           </div>
           </div>
-
           <input class="btn" type="submit" value="Add Exercise" />
 
-          
         </form>
         </div>
     ); 
