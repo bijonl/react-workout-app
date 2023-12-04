@@ -1,4 +1,4 @@
-function ExerciseList({exerciseList, removeItem, moveItem, moveItemDown}) {
+function ExerciseList({exerciseList, removeItem, moveItem}) {
     return (
         <div className="exercise-list">
             <div class="exercise-list-title">
